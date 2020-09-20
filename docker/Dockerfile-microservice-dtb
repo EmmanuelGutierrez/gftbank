@@ -1,0 +1,4 @@
+FROM openjdk:8
+VOLUME /tmp
+ADD componentes/microservice-dtb-1.0.0.jar microservice-dtb.jar
+ENTRYPOINT ["java", "-jar", "/microservice-dtb.jar"]

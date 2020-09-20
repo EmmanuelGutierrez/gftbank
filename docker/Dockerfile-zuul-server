@@ -1,0 +1,5 @@
+FROM openjdk:8
+VOLUME /tmp
+EXPOSE 8090
+ADD componentes/zuul-server-1.0.0.jar zuul-server.jar
+ENTRYPOINT ["java", "-jar", "/zuul-server.jar"]

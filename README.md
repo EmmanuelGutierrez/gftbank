@@ -1,10 +1,22 @@
 # Evaluación técnica - gftbank
 
+### Compilar los proyectos
+Ejecutar los siguientec comandos:
+```
+$ cd componentes
+$ gradle clean build -q copyJar projects
+```
 ### Crear las imagenes de Docker
-
 ```
-$ docker build -t bd-h2:v1 -f Dockerfile-h2 .
+$ cd docker
+$ ./crear-imagenes.sh
 ```
+### Ejecutar los contenedores Docker
+```
+docker-compose up
+```
+### Swagger-ui
 
+`http://localhost:8090/api/dtb/swagger-ui.html#/`
 
-docker run --name gft-bd-h2 -p 1521:1521 -p 8082:8082 -d bd-h2:v1
+`http://localhost:8090/api/swagger-ui.html#/`

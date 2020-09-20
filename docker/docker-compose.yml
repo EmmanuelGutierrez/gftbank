@@ -1,0 +1,55 @@
+version: '3.7'
+services:
+  config-server:
+    image: config-server:v1
+    ports:
+      - "8888:8888"
+    restart: always
+    networks:
+      - gftnetwork
+  eureka-server:
+    image: eureka-server:v1
+    ports:
+      - "8761:8761"
+    restart: always
+    networks:
+      - gftnetwork
+  gft-db-h2:
+    image: gft-db-h2:v1
+    ports:
+      - "1521:1521"
+    restart: always
+    networks:
+      - gftnetwork
+  microservice-dtb:
+    image: microservice-dtb:v1
+    restart: always
+    networks:
+      - gftnetwork
+    depends_on:
+      - config-server
+      - eureka-server
+      - gft-db-h2
+  microservice-clientes-cuentas:
+    image: microservice-clientes-cuentas:v1
+    restart: always
+    networks:
+      - gftnetwork
+    depends_on:
+      - config-server
+      - eureka-server
+      - microservice-dtb
+  zuul-server:
+    image: zuul-server:v1
+    restart: always
+    ports:
+      - "8090:8090"
+    networks:
+      - gftnetwork
+    depends_on:
+      - config-server
+      - eureka-server
+      - microservice-dtb
+      - microservice-clientes-cuentas
+networks:
+  gftnetwork:

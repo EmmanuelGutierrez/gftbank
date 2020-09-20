@@ -1,0 +1,5 @@
+FROM openjdk:8
+VOLUME /tmp
+EXPOSE 8761
+ADD componentes/microservice-clientes-cuentas-1.0.0.jar microservice-clientes-cuentas.jar
+ENTRYPOINT ["java", "-jar", "/microservice-clientes-cuentas.jar"]
