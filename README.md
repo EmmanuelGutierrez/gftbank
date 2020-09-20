@@ -1,7 +1,7 @@
 # Evaluación técnica - gftbank
 
 ### Compilar los proyectos
-Ejecutar los siguientec comandos:
+Ejecutar los siguientes comandos:
 ```
 $ cd componentes
 $ gradle clean build -q copyJar projects
