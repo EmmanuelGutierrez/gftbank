@@ -13,7 +13,7 @@ $ ./crear-imagenes.sh
 ```
 ### Ejecutar los contenedores Docker
 ```
-docker-compose up
+$ docker-compose up
 ```
 ### Swagger-ui
 
